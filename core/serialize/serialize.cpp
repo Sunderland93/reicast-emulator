@@ -41,7 +41,6 @@ extern u32 e68k_reg_L;
 extern u32 e68k_reg_M;
 
 
-
 //./core/hw/arm7/arm7.cpp
 extern DECL_ALIGN(8) reg_pair arm_Reg[RN_ARM_REG_COUNT];
 extern bool armIrqEnable;
@@ -71,13 +70,9 @@ extern bool holdState ;
 */
 
 
-
-
 //./core/hw/aica/dsp.o
 extern DECL_ALIGN(4096) dsp_t dsp;
 //recheck dsp.cpp if FEAT_DSPREC == DYNAREC_JIT
-
-
 
 
 //./core/hw/aica/aica.o
@@ -94,7 +89,6 @@ extern DECL_ALIGN(4096) dsp_t dsp;
 extern AicaTimer timers[3];
 
 
-
 //./core/hw/aica/aica_if.o
 extern VArray2 aica_ram;
 extern u32 VREG;//video reg =P
@@ -105,7 +99,6 @@ extern int dma_sched_id;
 
 //./core/hw/aica/aica_mem.o
 extern u8 aica_reg[0x8000];
-
 
 
 //./core/hw/aica/sgc_if.o
@@ -137,15 +130,11 @@ extern SampleType mxlr[64];
 extern u32 samples_gen;
 
 
-
-
-
 //./core/hw/holly/sb.o
 extern Array<RegisterStruct> sb_regs;
 extern u32 SB_ISTNRM;
 extern u32 SB_FFST_rc;
 extern u32 SB_FFST;
-
 
 
 //./core/hw/holly/sb_mem.o
@@ -167,12 +156,8 @@ extern SRamChip sys_nvmem;
 //extern _vmem_handler area0_handler;
 
 
-
-
 //./core/hw/gdrom/gdrom_response.o
 extern u16 reply_11[] ;
-
-
 
 
 //./core/hw/gdrom/gdromv3.o
@@ -203,9 +188,6 @@ extern GD_SecCountT SecCount;
 extern GD_SecNumbT SecNumber;
 extern GD_StatusT GDStatus;
 extern ByteCount_t ByteCount ;
-
-
-
 
 
 //./core/hw/maple/maple_devs.o
@@ -246,8 +228,6 @@ struct maple_sega_purupuru : maple_base
 */
 
 
-
-
 //./core/hw/maple/maple_if.o
 //needs special handler
 extern maple_device* MapleDevices[4][6];
@@ -256,10 +236,6 @@ extern maple_device* MapleDevices[4][6];
 //incremented but never read
 //extern u32 dmacount;
 extern bool maple_ddt_pending_reset;
-
-
-
-
 
 
 //./core/hw/pvr/Renderer_if.o
@@ -311,13 +287,9 @@ extern u32 YUV_x_size;
 extern u32 YUV_y_size;
 
 
-
-
 //./core/hw/pvr/pvr_regs.o
 extern bool fog_needs_update;
 extern u8 pvr_regs[pvr_RegSize];
-
-
 
 
 //./core/hw/pvr/spg.o
@@ -337,14 +309,10 @@ extern double full_rps;
 extern u32 fskip;
 
 
-
-
 //./core/hw/pvr/ta.o
 extern u32 ta_type_lut[256];
 extern u8 ta_fsm[2049];	//[2048] stores the current state
 extern u32 ta_fsm_cl;
-
-
 
 
 //./core/hw/pvr/ta_ctx.o
@@ -363,7 +331,6 @@ extern u32 ta_fsm_cl;
 //extern vector<TA_context*> ctx_pool;
 //extern vector<TA_context*> ctx_list;
 //end maybe
-
 
 
 //./core/hw/pvr/ta_vtx.o
@@ -406,8 +373,6 @@ extern DECL_ALIGN(4) u32 SFaceOffsColor;
 //extern int ta_parse_cnt;
 
 
-
-
 //./core/rend/TexCache.o
 //maybe
 //extern u8* vq_codebook;
@@ -421,8 +386,6 @@ extern u32 detwiddle[2][8][1024];
 //maybe - probably not - just a locking mechanism
 //extern cMutex vramlist_lock;
 extern VArray2 vram;
-
-
 
 
 //./core/hw/sh4/sh4_mmr.o
@@ -439,16 +402,12 @@ extern Array<RegisterStruct> SCI;   //SCI  : 8 registers
 extern Array<RegisterStruct> SCIF; //SCIF : 10 registers
 
 
-
-
 //./core/hw/sh4/sh4_mem.o
 extern VArray2 mem_b;
 //one-time init
 //extern _vmem_handler area1_32b;
 //one-time init
 //extern _vmem_handler area5_handler;
-
-
 
 
 //./core/hw/sh4/sh4_interrupts.o
@@ -463,8 +422,6 @@ extern u32 interrupt_vmask; // Vector of masked interrupts             (-1 inhib
 extern u32 decoded_srimask; // Vector of interrupts allowed by SR.IMSK (-1 inhibits all interrupts)
 
 
-
-
 //./core/hw/sh4/sh4_core_regs.o
 extern Sh4RCB* p_sh4rcb;
 //just method pointers
@@ -475,8 +432,6 @@ extern u32 old_rm;
 extern u32 old_dn;
 
 
-
-
 //./core/hw/sh4/sh4_sched.o
 extern u64 sh4_sched_ffb;
 extern u32 sh4_sched_intr;
@@ -484,13 +439,9 @@ extern vector<sched_list> list;
 extern int sh4_sched_next_id;
 
 
-
-
 //./core/hw/sh4/interpr/sh4_interpreter.o
 extern int aica_schid;
 extern int rtc_schid;
-
-
 
 
 //./core/hw/sh4/modules/serial.o
@@ -499,12 +450,8 @@ extern u8 SCIF_SCFRDR2;
 extern SCIF_SCFDR2_type SCIF_SCFDR2;
 
 
-
-
 //./core/hw/sh4/modules/bsc.o
 extern BSC_PDTRA_type BSC_PDTRA;
-
-
 
 
 //./core/hw/sh4/modules/tmu.o
@@ -517,12 +464,8 @@ extern u32 tmu_ch_base[3];
 extern u64 tmu_ch_base64[3];
 
 
-
-
 //./core/hw/sh4/modules/ccn.o
 extern u32 CCN_QACR_TR[2];
-
-
 
 
 //./core/hw/sh4/modules/mmu.o
@@ -536,14 +479,11 @@ extern u32 mmu_error_TT;
 #endif
 
 
-
 //./core/imgread/common.o
 extern u32 NullDriveDiscType;
 //maybe - seems to all be one-time inits ;    needs special handler
 //extern Disc* disc;
 extern u8 q_subchannel[96];
-
-
 
 
 //./core/nullDC.o
@@ -558,8 +498,6 @@ extern u8 q_subchannel[96];
 //extern unsigned VRAM_MASK;
 //settings can be dynamic
 //extern settings_t settings;
-
-
 
 
 //./core/reios/reios.o
@@ -592,19 +530,14 @@ extern u8 q_subchannel[96];
 //extern map<hook_fp*, u32> hooks_rev;
 
 
-
-
 //./core/reios/gdrom_hle.o
 //never used in any meaningful way
 //extern u32 SecMode[4];
 
 
-
-
 //./core/reios/descrambl.o
 //random seeds can be...random
 //extern unsigned int seed;
-
 
 
 //./core/rend/gles/gles.o
@@ -627,7 +560,6 @@ extern u8 q_subchannel[96];
 //end maybe
 
 
-
 //./core/rend/gles/gldraw.o
 //maybe
 //extern PipelineShader* CurrentShader;
@@ -635,8 +567,6 @@ extern u8 q_subchannel[96];
 //extern Vertex* vtx_sort_base;
 //maybe
 //extern vector<SortTrigDrawParam>	pidx_sort;
-
-
 
 
 //./core/rend/gles/gltex.o
@@ -650,8 +580,6 @@ extern u8 q_subchannel[96];
 //static float LastTexCacheStats;
 //maybe should get reset naturally if needed
 //GLuint fbTextureId;
-
-
 
 
 //./core/hw/naomi/naomi.o
@@ -696,8 +624,6 @@ extern u32 NAOMI_COMM_OFFSET;
 extern u32 NAOMI_COMM_DATA;
 
 
-
-
 //./core/hw/naomi/naomi_cart.o
 //all one-time loads
 //u8* RomPtr;
@@ -706,13 +632,9 @@ extern u32 NAOMI_COMM_DATA;
 //u32		RomCacheMapCount;
 
 
-
-
 //./core/rec-x64/rec_x64.o
 //maybe need special handler
 //extern BlockCompilerx64 *compilerx64_data;
-
-
 
 
 //./core/rec.o
@@ -720,7 +642,6 @@ extern int cycle_counter;
 #if FEAT_SHREC == DYNAREC_CPP
 extern int idxnxx;
 #endif
-
 
 
 //./core/hw/sh4/dyna/decoder.o
@@ -732,8 +653,6 @@ extern Sh4RegType div_som_reg2;
 extern Sh4RegType div_som_reg3;
 
 
-
-
 //./core/hw/sh4/dyna/driver.o
 //extern u8 SH4_TCB[CODE_SIZE+4096];
 //one time ptr set
@@ -743,8 +662,6 @@ extern u32 LastAddr_min;
 //temp storage only
 //extern u32* emit_ptr;
 extern char block_hash[1024];
-
-
 
 
 //./core/hw/sh4/dyna/blockmanager.o
@@ -767,16 +684,12 @@ extern char block_hash[1024];
 //extern bool print_stats;
 
 
-
-
 //./core/hw/sh4/dyna/shil.o
 extern u32 RegisterWrite[sh4_reg_count];
 extern u32 RegisterRead[sh4_reg_count];
 extern u32 fallback_blocks;
 extern u32 total_blocks;
 extern u32 REMOVED_OPS;
-
-
 
 
 //./core/libretro/libretro.o
@@ -786,7 +699,6 @@ extern u8 lt[4];
 extern u32 vks[4];
 extern s8 joyx[4];
 extern s8 joyy[4];
-
 
 
 //./core/libretro-common/glsm/glsm.o
@@ -898,7 +810,6 @@ bool dc_serialize(void **data, unsigned int *total_size)
 	REICAST_SA(aica_reg,0x8000);
 
 
-
 	REICAST_SA(volume_lut,16);
 	REICAST_SA(tl_lut,256 + 768);
 	REICAST_SA(AEG_ATT_SPS,64);
@@ -920,7 +831,6 @@ bool dc_serialize(void **data, unsigned int *total_size)
 	REICAST_S(SB_FFST);
 
 
-
 	//this is one-time init, no updates - don't need to serialize
 	//extern RomChip sys_rom;
 
@@ -933,10 +843,7 @@ bool dc_serialize(void **data, unsigned int *total_size)
 	//extern _vmem_handler area0_handler;
 
 
-
-
 	REICAST_SA(reply_11,16) ;
-
 
 
 	REICAST_S(gdrom_schid);
@@ -979,7 +886,6 @@ bool dc_serialize(void **data, unsigned int *total_size)
 				MapleDevices[i][j]->maple_serialize(data, total_size) ;
 
 
-
 	REICAST_S(FrameCount);
 	REICAST_S(pend_rend);
 
@@ -993,12 +899,8 @@ bool dc_serialize(void **data, unsigned int *total_size)
 	REICAST_S(YUV_y_size);
 
 
-
-
 	REICAST_S(fog_needs_update);
 	REICAST_SA(pvr_regs,pvr_RegSize);
-
-
 
 
 	REICAST_S(in_vblank);
@@ -1015,7 +917,6 @@ bool dc_serialize(void **data, unsigned int *total_size)
 	REICAST_S(mips_counter);
 	REICAST_S(full_rps);
 	REICAST_S(fskip);
-
 
 
 	REICAST_SA(ta_type_lut,256);
@@ -1049,8 +950,6 @@ bool dc_serialize(void **data, unsigned int *total_size)
 	REICAST_SA(vram.data, vram.size);
 
 
-
-
 	REICAST_SA(OnChipRAM.data,OnChipRAM_SIZE);
 
 	register_serialize(CCN, data, total_size) ;
@@ -1067,7 +966,6 @@ bool dc_serialize(void **data, unsigned int *total_size)
 	REICAST_SA(mem_b.data, mem_b.size);
 
 
-
 	REICAST_S(IRLPriority);
 	REICAST_SA(InterruptEnvId,32);
 	REICAST_SA(InterruptBit,32);
@@ -1075,8 +973,6 @@ bool dc_serialize(void **data, unsigned int *total_size)
 	REICAST_S(interrupt_vpend);
 	REICAST_S(interrupt_vmask);
 	REICAST_S(decoded_srimask);
-
-
 
 
 	//default to nommu_full
@@ -1103,8 +999,6 @@ bool dc_serialize(void **data, unsigned int *total_size)
 	REICAST_S(old_dn);
 
 
-
-
 	REICAST_S(sh4_sched_ffb);
 	REICAST_S(sh4_sched_intr);
 	REICAST_S(sh4_sched_next_id);
@@ -1116,7 +1010,6 @@ bool dc_serialize(void **data, unsigned int *total_size)
 		REICAST_S(list[i].start) ;
 		REICAST_S(list[i].end) ;
 	}
-
 
 
 	REICAST_S(aica_schid);
@@ -1131,8 +1024,6 @@ bool dc_serialize(void **data, unsigned int *total_size)
 	REICAST_S(BSC_PDTRA);
 
 
-
-
 	REICAST_SA(tmu_shift,3);
 	REICAST_SA(tmu_mask,3);
 	REICAST_SA(tmu_mask64,3);
@@ -1142,11 +1033,7 @@ bool dc_serialize(void **data, unsigned int *total_size)
 	REICAST_SA(tmu_ch_base64,3);
 
 
-
-
 	REICAST_SA(CCN_QACR_TR,2);
-
-
 
 
 	REICAST_SA(UTLB,64);
@@ -1157,7 +1044,6 @@ bool dc_serialize(void **data, unsigned int *total_size)
 	REICAST_SA(ITLB_LRU_USE,64);
 	REICAST_S(mmu_error_TT);
 #endif
-
 
 
 	REICAST_S(NullDriveDiscType);
@@ -1173,7 +1059,6 @@ bool dc_serialize(void **data, unsigned int *total_size)
 	//REICAST_S(RAM_MASK);
 	//REICAST_S(ARAM_MASK);
 	//REICAST_S(VRAM_MASK);
-
 
 
 	REICAST_S(naomi_updates);
@@ -1227,8 +1112,6 @@ bool dc_serialize(void **data, unsigned int *total_size)
 	REICAST_S(div_som_reg3);
 
 
-
-
 	//REICAST_SA(CodeCache,CODE_SIZE) ;
 	//REICAST_SA(SH4_TCB,CODE_SIZE+4096);
 	REICAST_S(LastAddr);
@@ -1243,15 +1126,12 @@ bool dc_serialize(void **data, unsigned int *total_size)
 	REICAST_S(REMOVED_OPS);
 
 
-
-
 	REICAST_SA(kcode,4);
 	REICAST_SA(rt,4);
 	REICAST_SA(lt,4);
 	REICAST_SA(vks,4);
 	REICAST_SA(joyx,4);
 	REICAST_SA(joyy,4);
-
 
 
 	return true ;
@@ -1300,7 +1180,6 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 	REICAST_USA(aica_reg,0x8000);
 
 
-
 	REICAST_USA(volume_lut,16);
 	REICAST_USA(tl_lut,256 + 768);
 	REICAST_USA(AEG_ATT_SPS,64);
@@ -1322,7 +1201,6 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 	REICAST_US(SB_FFST);
 
 
-
 	//this is one-time init, no updates - don't need to serialize
 	//extern RomChip sys_rom;
 
@@ -1336,10 +1214,7 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 	//extern _vmem_handler area0_handler;
 
 
-
-
 	REICAST_USA(reply_11,16) ;
-
 
 
 	REICAST_US(gdrom_schid);
@@ -1382,7 +1257,6 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 				MapleDevices[i][j]->maple_unserialize(data, total_size) ;
 
 
-
 	REICAST_US(FrameCount);
 	REICAST_US(pend_rend);
 
@@ -1394,8 +1268,6 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 	REICAST_US(YUV_y_curr);
 	REICAST_US(YUV_x_size);
 	REICAST_US(YUV_y_size);
-
-
 
 
 	REICAST_US(fog_needs_update);
@@ -1417,7 +1289,6 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 	REICAST_US(mips_counter);
 	REICAST_US(full_rps);
 	REICAST_US(fskip);
-
 
 
 	REICAST_USA(ta_type_lut,256);
@@ -1451,8 +1322,6 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 	REICAST_USA(vram.data, vram.size);
 
 
-
-
 	REICAST_USA(OnChipRAM.data,OnChipRAM_SIZE);
 
 	register_unserialize(CCN, data, total_size) ;
@@ -1469,7 +1338,6 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 	REICAST_USA(mem_b.data, mem_b.size);
 
 
-
 	REICAST_US(IRLPriority);
 	REICAST_USA(InterruptEnvId,32);
 	REICAST_USA(InterruptBit,32);
@@ -1477,8 +1345,6 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 	REICAST_US(interrupt_vpend);
 	REICAST_US(interrupt_vmask);
 	REICAST_US(decoded_srimask);
-
-
 
 
 	REICAST_US(i) ;
@@ -1490,7 +1356,6 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 		do_sqw_nommu = (sqw_fp*)&TAWriteSQ ;
 	else if ( i == 3 )
 		do_sqw_nommu = &do_sqw_nommu_full ;
-
 
 
 	REICAST_USA((*p_sh4rcb).sq_buffer,64/8);
@@ -1506,8 +1371,6 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 	REICAST_US(old_dn);
 
 
-
-
 	REICAST_US(sh4_sched_ffb);
 	REICAST_US(sh4_sched_intr);
 	REICAST_US(sh4_sched_next_id);
@@ -1519,7 +1382,6 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 		REICAST_US(list[i].start) ;
 		REICAST_US(list[i].end) ;
 	}
-
 
 
 	REICAST_US(aica_schid);
@@ -1534,8 +1396,6 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 	REICAST_US(BSC_PDTRA);
 
 
-
-
 	REICAST_USA(tmu_shift,3);
 	REICAST_USA(tmu_mask,3);
 	REICAST_USA(tmu_mask64,3);
@@ -1545,11 +1405,7 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 	REICAST_USA(tmu_ch_base64,3);
 
 
-
-
 	REICAST_USA(CCN_QACR_TR,2);
-
-
 
 
 	REICAST_USA(UTLB,64);
@@ -1560,8 +1416,6 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 	REICAST_USA(ITLB_LRU_USE,64);
 	REICAST_US(mmu_error_TT);
 #endif
-
-
 
 
 	REICAST_US(NullDriveDiscType);
@@ -1577,7 +1431,6 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 	//REICAST_US(RAM_MASK);
 	//REICAST_US(ARAM_MASK);
 	//REICAST_US(VRAM_MASK);
-
 
 
 	REICAST_US(naomi_updates);
@@ -1631,8 +1484,6 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 	REICAST_US(div_som_reg3);
 
 
-
-
 	//REICAST_USA(CodeCache,CODE_SIZE) ;
 	//REICAST_USA(SH4_TCB,CODE_SIZE+4096);
 	REICAST_US(LastAddr);
@@ -1645,8 +1496,6 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 	REICAST_US(fallback_blocks);
 	REICAST_US(total_blocks);
 	REICAST_US(REMOVED_OPS);
-
-
 
 
 	REICAST_USA(kcode,4);

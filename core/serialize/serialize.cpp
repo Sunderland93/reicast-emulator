@@ -380,6 +380,9 @@ extern u32 palette_index;
 extern bool KillTex;
 //extern u32 palette16_ram[1024];
 //extern u32 palette32_ram[1024];
+#if FEAT_HAS_SOFTREND
+extern u32 decoded_colors[3][65536];
+#endif
 extern u32 detwiddle[2][8][1024];
 //maybe
 //extern vector<vram_block*> VramLocks[/*VRAM_SIZE*/(16*1024*1024)/PAGE_SIZE];
@@ -929,6 +932,13 @@ bool dc_serialize(void **data, unsigned int *total_size)
 	REICAST_SA(_pal_rev_16,64);
 	REICAST_SA(pal_rev_256,4);
 	REICAST_SA(pal_rev_16,64);
+#if FEAT_HAS_SOFTREND
+	for ( i = 0 ; i < 3 ; i++ )
+	{
+		u32 *ptr = decoded_colors[i] ;
+		REICAST_SA(ptr,65536);
+	}
+#endif
 	REICAST_S(tileclip_val);
 	REICAST_SA(f32_su8_tbl,65536);
 	REICAST_SA(FaceBaseColor,4);
@@ -1301,6 +1311,13 @@ bool dc_unserialize(void **data, unsigned int *total_size)
 	REICAST_USA(_pal_rev_16,64);
 	REICAST_USA(pal_rev_256,4);
 	REICAST_USA(pal_rev_16,64);
+#if FEAT_HAS_SOFTREND
+	for ( i = 0 ; i < 3 ; i++ )
+	{
+		u32 *ptr = decoded_colors[i] ;
+		REICAST_USA(ptr,65536);
+	}
+#endif
 	REICAST_US(tileclip_val);
 	REICAST_USA(f32_su8_tbl,65536);
 	REICAST_USA(FaceBaseColor,4);
